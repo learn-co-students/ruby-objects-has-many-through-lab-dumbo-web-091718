@@ -12,7 +12,7 @@
 In this lab, we'll be dealing with two sets of three classes.
 
 We have a `Song`, `Artist` and `Genre` class. Songs belong to an artist and
-belong to a genre. A genre has many songs and an artist has many songs. An
+<!-- belong to a genre. A genre has many songs and an artist has many songs. --> An
 artist has many genres through its songs and a genre has many artists through
 its songs.
 

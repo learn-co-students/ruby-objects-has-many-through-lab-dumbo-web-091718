@@ -46,7 +46,7 @@ class Artist
    end
 
     def new_song # Follow the song initialize order
-      song = Song.new(name, self, genre)
+      song = Song.new(name, genre)
       song
       # given a name and genre, creates a new song
       # associated with that artist

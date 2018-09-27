@@ -40,7 +40,7 @@ class Artist
       # to that artist. Try using `select` to achieve this.
 
    def genres
-     return self.select do |song|
+  self.select do |song|
        binding.pry
        # binding.pry  #song.genre => #<Genre:0x00007f8000bac1d8 @name="rap">
         song.genre

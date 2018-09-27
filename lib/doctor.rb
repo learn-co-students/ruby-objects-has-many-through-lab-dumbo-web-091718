@@ -1,13 +1,14 @@
+require 'pry'
+
 class Doctor
 
-  attr_accessor :name, :patient, :appointment, :date
+  attr_accessor :name
 
    @@all = []
-   @@appointments = []
+
     def initialize(name)
       @name = name
       @@all << self
-      @@appointments << appointment
     end
 
     def self.all
@@ -15,15 +16,22 @@ class Doctor
     end
 
     def new_appointment(patient, date)
-   #   given a date and a patient, creates a new appointm
+  		 Appointment.new(patient, self, date)
+   #  `Patient`  and a date,
     end
 
     def appointments
-      @@appointments
+      Appointment.all.select do |appointment|
+        appointment.doctor == self
+      end
     end
 
     def patients
-      #many patients, through appointments
+       #itterates over doc's appts and collects
+       #the patient that belongs to eachappointment.
+      appointments.map do |appt|
+        appt.patient
+      end
     end
 
 end

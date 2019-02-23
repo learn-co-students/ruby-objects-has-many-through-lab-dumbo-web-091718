@@ -1,25 +1,22 @@
 class Genre
-  attr_accessor :name, :song
-
+  attr_reader :name, :songs
+  
   @@all = []
-
+  
   def initialize(name)
     @name = name
     @@all << self
   end
-
-  def songs
-    Song.all
-  end
-
+  
   def self.all
     @@all
   end
-
+  
+  def songs
+    songs = Song.all.select {|song| song.genre.name == self.name}
+  end
+  
   def artists
-    @artist = Song.all.map do |song|
-      song.artist
-    end
-    return @artist
+    self.songs.map {|song| song.artist}
   end
 end

@@ -1,32 +1,31 @@
+require "pry"
+
 class Artist
-  attr_accessor :name, :genre, :song
-
+  attr_reader :name
+  attr_accessor :songs
+  
   @@all = []
-
+  
   def initialize(name)
     @name = name
     @songs = []
     @@all << self
   end
-
+  
   def self.all
     @@all
   end
-
-  def new_song(song, genre)
-    new_song = Song.new(song, self, genre)
-    @songs << new_song
-    return new_song
+  
+  def new_song(name, genre)
+    song = Song.new(name, self, genre)
+    @songs << song
+    song
   end
-
-  def songs
-    @songs
-  end
-
+  
   def genres
-    @genre = @songs.map do |song|
+    genres = self.songs.map do |song|
       song.genre
     end
-    return @genre
+    genres
   end
 end
